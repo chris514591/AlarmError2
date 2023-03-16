@@ -13,6 +13,7 @@ type Config struct {
 	Low    int `json:"Low"`
 	Medium int `json:"Medium"`
 	High   int `json:"High"`
+	Panic  int `json:"NO NOT THE GERMANS AGAIN"`
 }
 
 func main() {
@@ -49,7 +50,9 @@ func main() {
 
 	// Choose alarm level based on count
 	var level string
-	if count >= config.High {
+	if count >= config.Panic {
+		level = "Panic"
+	} else if count >= config.High {
 		level = "High"
 	} else if count >= config.Medium {
 		level = "Medium"
@@ -62,7 +65,7 @@ func main() {
 
 	// Sound the alarm
 	for i := 1; i <= count; i++ {
-		time.Sleep(50 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 		fmt.Println("ALARM!", i)
 	}
 }
