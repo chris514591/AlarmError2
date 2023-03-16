@@ -28,7 +28,6 @@ func main() {
 	defer errorLogFile.Close()
 
 	log.SetOutput(errorLogFile)
-	log.Println("Alarm error program initiated.")
 
 	// Create a logger that writes to the error log file
 	errorLogger := log.New(errorLogFile, "", log.LstdFlags)
