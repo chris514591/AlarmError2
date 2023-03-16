@@ -47,7 +47,7 @@ func main() {
 	log.Printf("Alarm level: %s, Count: %d", level, count)
 
 	// sound the alarm
-	for i := 0; i < count; i++ {
+	for i := 1; i <= count; i++ {
 		time.Sleep(100 * time.Millisecond)
 		fmt.Println("ALARM!", i)
 	}
