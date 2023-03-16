@@ -62,7 +62,7 @@ func main() {
 
 	// Sound the alarm
 	for i := 1; i <= count; i++ {
-		time.Sleep(100 * time.Millisecond)
+		time.Sleep(50 * time.Millisecond)
 		fmt.Println("ALARM!", i)
 	}
 }
