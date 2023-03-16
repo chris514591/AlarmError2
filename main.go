@@ -21,7 +21,7 @@ func main() {
 	flag.Parse()
 
 	// Open a file for logging errors
-	errorLogFile, err := os.OpenFile("alarmErrorLogs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	errorLogFile, err := os.OpenFile("alarmErrorLogs.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Fatalf("error opening error log file: %v", err)
 	}
