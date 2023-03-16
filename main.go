@@ -20,9 +20,20 @@ func main() {
 	flag.IntVar(&count, "count", 0, "number of times to sound the alarm")
 	flag.Parse()
 
-	// load config from file
+	// Open a file for logging errors
+	errorLogFile, err := os.OpenFile("alarmErrorLogs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Fatalf("error opening error log file: %v", err)
+	}
+	defer errorLogFile.Close()
+
+	// Create a logger that writes to the error log file
+	errorLogger := log.New(errorLogFile, "", log.LstdFlags)
+
+	// Load config from file
 	configFile, err := os.Open("alarmConfig.json")
 	if err != nil {
+		errorLogger.Printf("error opening config file: %v", err)
 		log.Fatalf("error opening config file: %v", err)
 	}
 	defer configFile.Close()
@@ -30,10 +41,11 @@ func main() {
 	var config Config
 	err = json.NewDecoder(configFile).Decode(&config)
 	if err != nil {
+		errorLogger.Printf("error decoding config file: %v", err)
 		log.Fatalf("error decoding config file: %v", err)
 	}
 
-	// choose alarm level based on count
+	// Choose alarm level based on count
 	var level string
 	if count >= config.High {
 		level = "High"
@@ -43,10 +55,10 @@ func main() {
 		level = "Low"
 	}
 
-	// log alarm level and count
+	// Log alarm level and count
 	log.Printf("Alarm level: %s, Count: %d", level, count)
 
-	// sound the alarm
+	// Sound the alarm
 	for i := 1; i <= count; i++ {
 		time.Sleep(100 * time.Millisecond)
 		fmt.Println("ALARM!", i)
