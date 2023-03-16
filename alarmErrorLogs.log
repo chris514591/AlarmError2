@@ -1,0 +1,17 @@
+2023/03/16 11:14:19 error opening config file: open alarmConfi.json: The system cannot find the file specified.
+2023/03/16 11:14:38 error opening config file: open alarmConfi.json: The system cannot find the file specified.
+2023/03/16 11:17:55 Alarm error program initiated.
+2023/03/16 11:17:55 Alarm level: High, Count: 50
+2023/03/16 11:19:35 Alarm level: High, Count: 50
+2023/03/16 11:19:47 Alarm level: Low, Count: 1
+2023/03/16 11:19:51 Alarm level: High, Count: 50
+2023/03/16 11:20:00 Alarm level: Low, Count: 10
+2023/03/16 11:21:19 Alarm level: High, Count: 100
+2023/03/16 11:29:16 Alarm level: Panic, Count: 100
+2023/03/16 11:30:22 Alarm level: Panic, Count: 1000
+2023/03/16 11:31:23 Alarm level: Panic, Count: 1000
+2023/03/16 11:37:34 Alarm level: Panic, Count: 100
+2023/03/16 11:45:37 Alarm level: Low, Count: 1
+2023/03/16 11:45:40 Alarm level: Low, Count: 10
+2023/03/16 11:45:41 Alarm level: Low, Count: 10
+2023/03/16 11:45:43 Alarm level: Low, Count: 10
